@@ -1,14 +1,16 @@
 import React, { useState } from 'react';
 import data from './data';
-import List from './List';
+import List from './components/List';
 function App() {
   const [people, setPeople] = useState(data);
 
+  // remove particular data 
   const removeBday = (id) => {
     const newBday = people.filter((bday) => bday.id !== id);
     setPeople(newBday);
   };
 
+  // no bday remaining and refresh to get agian
   if (people.length === 0){
     return <main>
     <div className='container'>
@@ -18,6 +20,7 @@ function App() {
     </main>
   }
 
+  // main container with all data output 
   return (
     <main>
       <div className="container">
